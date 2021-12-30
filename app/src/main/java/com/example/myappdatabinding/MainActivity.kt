@@ -2,6 +2,7 @@ package com.example.myappdatabinding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.myappdatabinding.databinding.ActivityMainBinding
@@ -18,18 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         _binding = ActivityMainBinding.inflate(layoutInflater)
-
-        with(binding) {
-            binding.counter = 1
-
-
-            sampleButton.setOnClickListener {
-                binding.counter += 1
-
-            }
-        }
-
         setContentView(binding.root)
+
+        binding.sampleButton.setOnClickListener {
+            Toast.makeText(this, binding.inputText, Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onDestroy() {
