@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="kinoko"
+            type="int" />
+
+        <variable
+            name="takenoko"
+            type="int" />
+    </data>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        tools:context=".MainActivity">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="center"
+            android:text="@{Integer.toString(kinoko)}" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="center"
+            android:text="@{Integer.toString(takenoko)}" />
+
+        <Button
+            android:id="@+id/buttonKinoko"
+            android:layout_columnWeight="1"
+            android:text="きのこ" />
+
+        <Button
+            android:id="@+id/buttonTakenoko"
+            android:padding="6dp"
+            android:layout_columnWeight="1"
+            android:text="たけのこ" />
+    </GridLayout>
+
+
+
+</layout>
