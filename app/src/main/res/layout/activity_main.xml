@@ -9,9 +9,10 @@
             name="mainViewModel"
             type="com.example.myappdatabinding.MainViewModel" />
 
+        <import type="android.view.View"/>
         <variable
-            name="inputText"
-            type="String" />
+            name="enableAlarm"
+            type="boolean" />
 
     </data>
 
@@ -20,27 +21,30 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/sampleEditText"
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:checked="@={enableAlarm}"
+            android:text="アラーム"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TimePicker
+            android:id="@+id/timePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:ems="10"
-            android:text="@={inputText}"
-            android:inputType="text"
+            android:visibility="@{enableAlarm ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
-        <Button
-            android:id="@+id/sampleButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sampleEditText" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
