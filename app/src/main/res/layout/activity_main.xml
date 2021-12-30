@@ -9,11 +9,13 @@
             name="mainViewModel"
             type="com.example.myappdatabinding.MainViewModel" />
 
-        <import type="android.view.View"/>
         <variable
-            name="enableAlarm"
-            type="boolean" />
+            name="text"
+            type="String" />
 
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,29 +24,25 @@
         tools:context=".MainActivity">
 
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/sampleTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:checked="@={enableAlarm}"
-            android:text="アラーム"
+            android:text="@{text}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TimePicker
-            android:id="@+id/timePicker"
+        <Button
+            android:id="@+id/sampleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:visibility="@{enableAlarm ? View.VISIBLE : View.GONE}"
+            android:onClick="@{onClick}"
+            android:text="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/sampleTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.sampleButton.setOnClickListener {
-//            Toast.makeText(this, binding.inputText, Toast.LENGTH_LONG).show()
-//        }
+        // setOnClickが実行された場合
+        binding.setOnClick {
+            binding.text = "Click!"
+        }
+
     }
 
     override fun onDestroy() {
