@@ -1,11 +1,19 @@
 package com.example.myappdatabinding
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.myappdatabinding.databinding.ActivityMainBinding
+import com.example.myappdatabinding.databinding.ListExampleBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,14 +26,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // setOnClickが実行された場合
-        binding.setOnClick {
-            binding.text = "Click!"
+        val adapter = MainListAdapter(this).apply {
+            add(ListItem("ゴミ出し", Date()))
+            add(ListItem("技術書を書く", Date()))
+            add(ListItem("脱稿する", Date()))
         }
 
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.listView.adapter = adapter
+        setContentView(binding.root)
     }
 
     override fun onDestroy() {
